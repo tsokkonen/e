@@ -1,2 +1,3 @@
+*.fasl
 e.asd
 package.lisp
