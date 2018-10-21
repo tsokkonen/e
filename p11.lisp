@@ -44,18 +44,6 @@
 (defun mklist (obj)
   (if (listp obj) obj (list obj)))
 
-(defun show-row-products-pos-1 ()
-  (dolist (x (group (flatten *grid*) 4))
-    (print (reduce #'* x))))
-
-(defun show-row-products-pos-2 ()
-  (dolist (x (group (cdr (flatten *grid*)) 4))
-    (print (reduce #'* x))))
-
-(defun show-row-products-pos-3 ()
-  (dolist (x (group (cddr (flatten *grid*)) 4))
-    (print (reduce #'* x))))
-
-(defun show-row-products-pos-4 ()
-  (dolist (x (group (cdddr (flatten *grid*)) 4))
+(defun compute-row-products (fn) 
+  (dolist (x (group (funcall fn (flatten *grid*)) 4))
     (print (reduce #'* x))))
