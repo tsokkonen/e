@@ -44,6 +44,10 @@
 (defun mklist (obj)
   (if (listp obj) obj (list obj)))
 
-(defun compute-row-products (fn) 
-  (dolist (x (group (funcall fn (flatten *grid*)) 4))
-    (print (reduce #'* x))))
+(defun compute-row-products (fn)
+  (let ((result '()))
+    (dolist (x (group (funcall fn (flatten *grid*)) 4) result)
+      (push (reduce #'* x) result))))
+
+(defun get-list-largest (lst)
+  (apply #'max lst))
