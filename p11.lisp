@@ -51,3 +51,14 @@
 
 (defun get-list-largest (lst)
   (apply #'max lst))
+
+(defun make-row (grid)
+  (mapcar #'car grid))
+
+(make-row *grid*)
+
+(defun invert (grid)
+  (if (null grid)
+      nil
+      (cons (make-row grid) (invert (cdr grid)))))
+
